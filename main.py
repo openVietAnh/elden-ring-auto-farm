@@ -1,6 +1,6 @@
 import threading
 import time
-import pyautogui
+import pydirectinput
 from pynput import keyboard
 
 running = False
@@ -10,33 +10,33 @@ def execute_actions():
     global running
     while running:
         # Press W for 2.5 seconds
-        pyautogui.keyDown('w')
-        time.sleep(2.5)
-        pyautogui.keyUp('w')
+        pydirectinput.keyDown('w')
+        time.sleep(4)
+        pydirectinput.keyUp('w')
 
         # Press E, delay 3 seconds, press Q
-        pyautogui.press('e')
+        pydirectinput.press('e')
         time.sleep(3)
-        pyautogui.press('q')
+        pydirectinput.press('q')
 
         # Move mouse to the left
-        pyautogui.moveRel(-100, 0, duration=0.5)
+        pydirectinput.moveRel(-100, 0, duration=0.5)
 
         # Press W for 2.5 seconds
-        pyautogui.keyDown('w')
-        time.sleep(2.5)
-        pyautogui.keyUp('w')
+        pydirectinput.keyDown('w')
+        time.sleep(4)
+        pydirectinput.keyUp('w')
 
         # Press Ctrl
-        pyautogui.press('ctrl')
+        pydirectinput.press('ctrl')
 
         # Move mouse to the left again
-        pyautogui.moveRel(-100, 0, duration=0.5)
+        pydirectinput.moveRel(-100, 0, duration=0.5)
 
 def on_press(key):
     global running, listener
     try:
-        if key == keyboard.Key.f12:
+        if key.char == 'c':
             if running:
                 running = False
                 listener.stop()
