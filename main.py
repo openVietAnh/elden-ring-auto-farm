@@ -8,30 +8,27 @@ listener = None
 
 def execute_actions():
     global running
+    pydirectinput.keyDown('w')
+    time.sleep(4)
+    pydirectinput.keyUp('w')
     while running:
-        # Press W for 2.5 seconds
-        pydirectinput.keyDown('w')
-        time.sleep(4)
-        pydirectinput.keyUp('w')
-
-        # Press E, delay 3 seconds, press Q
         pydirectinput.press('e')
         time.sleep(3)
         pydirectinput.press('q')
+        time.sleep(2)
 
-        # Move mouse to the left
-        pydirectinput.moveRel(-100, 0, duration=0.5)
-
-        # Press W for 2.5 seconds
-        pydirectinput.keyDown('w')
+        pydirectinput.keyDown('s')
         time.sleep(4)
-        pydirectinput.keyUp('w')
+        pydirectinput.keyUp('s')
 
-        # Press Ctrl
         pydirectinput.press('ctrl')
+        time.sleep(4)
 
-        # Move mouse to the left again
-        pydirectinput.moveRel(-100, 0, duration=0.5)
+        pydirectinput.press('w')
+        pydirectinput.press('q')
+        pydirectinput.keyDown('w')
+        time.sleep(4.3)
+        pydirectinput.keyUp('w')
 
 def on_press(key):
     global running, listener
